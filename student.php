@@ -6,35 +6,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GetBooks | Student </title>
-    <link href="style.css" rel="stylesheet">
+    <link href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
+    <link href="assets/style.css" rel="stylesheet">
 </head>
 
 <body>
     <div id="next">
-        <header class="sticky py-6 bg-slate-200 w-full">
-            <div class="flex flex-row justify-between w-9/12 mx-auto">
-                <a href="index.html" class="text-xl hover:text-blue-500">GetBooks</a>
-                <a href="login.html " class="text-lg hover:text-blue-500">Log-In</a>
-            </div>
-        </header>
+        <?php include("includes/header.php"); ?>
 
         <div class="flex flex-col mx-40 px-12 py-9 flex-grow justify-center">
             <h1 class="font-bold text-3xl">Student</h1>
             <div class="flex flex-row py-8 gap-8 justify-between">
-                <div class="flex flex-col">
-                    <a href="https://medium.com/@nathanhogg1223/review-zebra-g-series-f474518a5b63">
-                        <div class="hover:text-two flex flex-col py-24 px-5 text-white drop-shadow-2xl bg-cover w-full h-full font-thin" style="background-image: url(images/computer.jpeg); ">
-                            <h1 class="mt-auto text-2xl text-center font-bold">CS 270</h1>
-                            <p class="text-center font-bold">Intro to Web Programming</p>
-                        </div>
-                    </a>
-                    <br>
-                    <div class="flex flex-col text-center">
-                        <a class="py-3 font-bold hover:text-three" href="https://www.amazon.com/Sapiens-Humankind-Yuval-Noah-Harari/dp/0062316117/ref=sr_1_1?crid=1NHY67VB6658Y&keywords=homo+sapiens+book&qid=1646358610&sprefix=%2Caps%2C67&sr=8-1">Sapiens</a>
-                        <a class="py-3 font-bold hover:text-three" href="https://www.amazon.com/Sapiens-Humankind-Yuval-Noah-Harari/dp/0062316117/ref=sr_1_1?crid=1NHY67VB6658Y&keywords=homo+sapiens+book&qid=1646358610&sprefix=%2Caps%2C67&sr=8-1">CS 270</a>
-                    </div>
-                </div>
-
                 <div class="flex flex-col">
                     <a href="https://medium.com/@nathanhogg1223/review-zebra-g-series-f474518a5b63">
                         <div class="hover:text-two flex flex-col py-24 px-5 text-white drop-shadow-2xl bg-cover w-full h-full font-thin" style="background-image: url(images/computer.jpeg); ">
@@ -110,45 +92,7 @@
         </div>
 
 
-        <footer class="bg-slate-600 text-white w-full">
-            <div class="flex flex-row justify-between py-8 w-7/12 mx-auto ">
-                <div class="flex flex-col">
-                    <h1>About</h1>
-                    <br>
-                    <a>Blog</a>
-                    <a>Our Team</a>
-                </div>
-                <div class="flex flex-col ">
-                    <h1>Download</h1>
-                    <br>
-                    <a>App</a>
-                    <a>Website</a>
-                </div>
-                <div class="flex flex-col ">
-                    <h1>Sales</h1>
-                    <br>
-                    <a>Universities</a>
-                    <a>High School</a>
-                    <a>Middle School</a>
-                    <a>Elementary School</a>
-                </div>
-                <div class="flex flex-col ">
-                    <h1>Support</h1>
-                    <br>
-                    <a>Test GetBooks</a>
-                    <a>Account</a>
-                    <a>Support Center</a>
-                    <a>Feedback</a>
-                    <a>Contact Us</a>
-                    <a>Accessibility</a>
-                    <a>Privacy, Security, Legal</a>
-                </div>
-
-            </div>
-
-
-        </footer>
-
+        <?php include("includes/footer.php"); ?>
 
 
     </div>
