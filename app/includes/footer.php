@@ -1,5 +1,6 @@
-<footer class="bg-gray-600 text-white w-full">
-            <div class="flex flex-row justify-between py-8 w-7/12 mx-auto ">
+<footer class="bg-gray-600 text-white w-full flex flex-col text-center justify-center items-center py-10">
+    <h1>GetBooks</h1>
+            <!-- <div class="flex flex-row justify-between py-8 w-7/12 mx-auto ">
                 <div class="flex flex-col">
                     <h1>About</h1>
                     <br>
@@ -31,8 +32,7 @@
                     <a>Accessibility</a>
                     <a>Privacy, Security, Legal</a>
                 </div>
-
-            </div>
+            </div> -->
 
 
         </footer>

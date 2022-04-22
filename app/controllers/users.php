@@ -13,21 +13,19 @@ $email = '';
 $password = '';
 $passwordConf = '';
 $table = 'users';
-$fullcourses = array();
-
+$mycourses = array();
 
 
 $user = selectOne('users', ['id' => $_SESSION['id']]);
 $c = $user['courses_id'];
 $courses = explode(' ', $c);
 foreach($courses as $course) {
-    array_push($fullcourses, selectOne('courses', ['name' => $course]));
+    array_push($mycourses, selectOne('courses', ['name' => $course]));
 }
-
-
 
 $admin_users = selectAll($table, ['admin' => 1]);
 $all_users = selectAllOrdered($table, 'admin');
+
 
 function loginUser($user) {
     echo $user['id'];
@@ -131,6 +129,14 @@ if (isset($_POST['update-user'])) {
         $password = $_POST['password'];
         $passwordConf = $_POST['passwordConf'];
     }
+}
+
+if(isset($_POST['editMyCourses'])) {
+    unset($_POST['editMyCourses']);
+    $arrfiltered = array_filter($_POST, fn($value) => !is_null($value) && $value !== '');    
+    $newcourses = implode(" ", $arrfiltered);
+    $new = update('users', $user['id'], ['courses_id' => $newcourses]);
+    header("Refresh:0");
 }
 
 
