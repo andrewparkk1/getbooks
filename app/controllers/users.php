@@ -139,5 +139,15 @@ if(isset($_POST['editMyCourses'])) {
     header("Refresh:0");
 }
 
+if(isset($_POST['editItems'])) {
+    $idnumber = $_POST['id']; 
+    unset($_POST['editItems']);
+    unset($_POST['id']);
+    $arrfiltered = array_filter($_POST, fn($value) => !is_null($value) && $value !== '');    
+    $newitems = implode(" ", $arrfiltered);
+    $new = update('courses', $idnumber, ['items' => $newitems]);
+    header("Refresh:0");
+}
+
 
 ?>
