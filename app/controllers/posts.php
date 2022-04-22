@@ -78,7 +78,6 @@ if(isset($_POST['add-post'])) {
     }
 }
 
-
 if(isset($_POST['update-post'])) {
     // adminOnly();
     $errors = validatePost($_POST);
