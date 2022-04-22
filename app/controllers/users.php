@@ -13,17 +13,30 @@ $email = '';
 $password = '';
 $passwordConf = '';
 $table = 'users';
+$fullcourses = array();
+
+
+
+$user = selectOne('users', ['id' => $_SESSION['id']]);
+$c = $user['courses_id'];
+$courses = explode(' ', $c);
+foreach($courses as $course) {
+    array_push($fullcourses, selectOne('courses', ['name' => $course]));
+}
+
+
 
 $admin_users = selectAll($table, ['admin' => 1]);
 $all_users = selectAllOrdered($table, 'admin');
 
 function loginUser($user) {
+    echo $user['id'];
     $_SESSION['id'] = $user['id'];
     $_SESSION['username'] = $user['username'];
     $_SESSION['admin'] = $user['admin'];
     $_SESSION['message'] = 'You are logged in';
     $_SESSION['type'] = 'Success';
-    header('location: ' . BASE . 'admin/dashboard.php');
+    header('location: ' . BASE . 'user.php');
 
     // if($_SESSION['admin'] ) {
     //     header('location: ' . BASE . 'admin/dashboard.php');
@@ -41,12 +54,14 @@ if (isset($_POST['register-btn']) || isset($_POST['create-admin'])) {
         $_POST['password'] = password_hash($_POST['password'], PASSWORD_DEFAULT);
         if (isset($_POST['admin'])) {
             $_POST['admin'] = 1;
+            $_POST['courses_id'] = "";
             $user_id = create($table, $_POST);
             $_SESSION['message'] = "admin created";
             header('location: ' . BASE . "admin/users/index.php");
             exit();
         } else {
             $_POST['admin'] = 0;
+            $_POST['courses_id'] = "";
             $user_id = create($table, $_POST);
             $user = selectOne($table, ['id' => $user_id]);
             loginUser($user);
@@ -67,6 +82,7 @@ if (isset($_POST['login-btn'])) {
         $user = selectOne($table, ['username' => $_POST['username']]);
         if (isset($user) && password_verify($_POST['password'], $user['password'])) {
         // if (isset($user) && $_POST['password'] === $user['password']) {
+            dd($user);
             loginUser($user);
         } else {
             array_push($errors, "Wrong credentials");
@@ -116,7 +132,6 @@ if (isset($_POST['update-user'])) {
         $passwordConf = $_POST['passwordConf'];
     }
 }
-
 
 
 ?>
