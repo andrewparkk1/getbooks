@@ -17,6 +17,15 @@ function executeQuery($sql, $data) {
     return $stmt;
 } 
 
+function selectFromCol($table, $col) {
+    global $conn;
+    $sql = "SELECT $col FROM $table";
+    $stmt = $conn->prepare($sql);
+    $stmt->execute();
+    $records = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
+    return $records;
+}
+
 function selectAll($table, $conditions = []) {
     global $conn;
     $sql = "SELECT * FROM $table";
@@ -41,9 +50,9 @@ function selectAll($table, $conditions = []) {
     } 
 }
 
-function selectAllOrdered($table, $col, $conditions = []) {
+function selectAllOrdered($table, $col, $order, $conditions = []) {
     global $conn;
-    $sql = "SELECT * FROM $table ORDER BY $col DESC";
+    $sql = "SELECT * FROM $table ORDER BY $col $order";
     if (empty($conditions)) {
         $stmt = $conn->prepare($sql);
         $stmt->execute();

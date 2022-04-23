@@ -1,6 +1,6 @@
 <?php include("path.php");
 include("app/controllers/users.php");
-$allcourses = selectAllOrdered('courses', 'name'); 
+$allcourses = selectAllOrdered('courses', 'name', 'ASC'); 
 // $allCourseNames = array(); 
 // foreach($courses as $cn) {
 //     array_push($allCourseNames, $cn['name']);

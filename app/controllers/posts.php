@@ -6,7 +6,7 @@ include(ROOT . "app/helpers/middleware.php");
 
 $table = 'posts';
 $topics = selectAll('topics');
-$posts = selectAllOrdered($table, 'id');
+$posts = selectAllOrdered($table, 'id', "ASC");
 $errors = array();
 
 $id = '';

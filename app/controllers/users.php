@@ -14,6 +14,20 @@ $password = '';
 $passwordConf = '';
 $table = 'users';
 $mycourses = array();
+$allcourses = selectAllOrdered('courses', 'name', "ASC");
+$admin_users = selectAll($table, ['admin' => 1]);
+$all_users = selectAllOrdered($table, 'admin', "DESC");
+
+
+$allprofessors = array();
+$allitems = array();
+foreach($allcourses as $course) {
+    array_push($allprofessors, $course['professor']); 
+    array_push($allitems, $course['items']);
+}
+$alluniqueprofessors = array_unique($allprofessors); 
+
+
 
 
 $user = selectOne('users', ['id' => $_SESSION['id']]);
@@ -23,8 +37,6 @@ foreach($courses as $course) {
     array_push($mycourses, selectOne('courses', ['name' => $course]));
 }
 
-$admin_users = selectAll($table, ['admin' => 1]);
-$all_users = selectAllOrdered($table, 'admin');
 
 
 function loginUser($user) {

@@ -55,6 +55,13 @@ th {
     color: white;
 }
 
+.searchCourses {
+    display: unset;
+}
+
+.searchProfessors {
+    display: unset;
+}
 
 
 /* @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
@@ -109,7 +116,10 @@ html.is-animating .transition-fade {
     opacity: 0;
 } */
 
+
 /* 
 @tailwind base;
 @tailwind components;
-@tailwind utilities; */ */
+@tailwind utilities; */
+
+*/
