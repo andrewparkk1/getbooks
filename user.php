@@ -18,6 +18,8 @@ $allcourses = selectAllOrdered('courses', 'name', 'ASC');
     <title>GetBooks | Student </title>
     <link href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
     <link href="assets/css/tailwind.css" rel="stylesheet">
+    <script src="assets/js/scripts.js"></script>
+
 </head>
 
 <body>
@@ -67,10 +69,10 @@ $allcourses = selectAllOrdered('courses', 'name', 'ASC');
                         <a href="edit.php">Edit</a>
                     <?php endif; ?>
                 </div>
-                <table>
+                <table id="allcourses">
                     <tr>
-                        <th>Course Name</th>
-                        <th>Professor</th>
+                        <th onclick="sortTable(0)">Course</th>
+                        <th onclick="sortTable(1)">Professor</th>
                         <th>Items</th>
                     </tr>
                     <?php foreach($mycourses as $course): ?>

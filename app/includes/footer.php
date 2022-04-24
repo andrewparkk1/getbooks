@@ -1,5 +1,6 @@
-<footer class="bg-gray-600 text-white w-full flex flex-col text-center justify-center items-center py-10">
-    <h1>GetBooks</h1>
+<footer class="bg-blue-600 text-white w-full flex flex-col text-center justify-center items-center py-10">
+    <a href="index.php" class="hover:text-blue-300">GetBooks</a>
+    <p>&copy; 2022 Andrew Park</p>
             <!-- <div class="flex flex-row justify-between py-8 w-7/12 mx-auto ">
                 <div class="flex flex-col">
                     <h1>About</h1>
