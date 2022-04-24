@@ -42,7 +42,7 @@ th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #3E7CB1;
+    background-color: rgb(37 99 235);;
     color: white;
 }
 
@@ -74,6 +74,7 @@ h3 {
     font-size: 20px;
     font-weight: bold;
 }
+
 
 @tailwind base;
 @tailwind components;

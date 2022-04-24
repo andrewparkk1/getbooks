@@ -12,19 +12,8 @@ include("app/controllers/users.php");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GetBooks</title>
     <link href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
-    <link href="assets/css/tailwind.css" rel="stylesheet">
-
-    <!-- For some reason, some styling must be done in this file. If it is moved to assets/css/tailwind.css, it will not work -->
-    <style>
-        h1 {
-            font-size: 50px;
-            font-weight: bold;
-        }
-        h2 {
-            font-size: 30px;
-        }
-    </style>
-
+    <!-- <link href="assets/css/tailwind.css" rel="stylesheet"> -->
+    <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>

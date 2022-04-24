@@ -28,7 +28,18 @@ $allcourses = selectAllOrdered('courses', 'name', 'ASC');
 
         <div class="flex flex-col flex-grow text-center justify-around items-center py-16">
             <div class="w-7/12 ">
-                <?php $i = 0; ?>
+            <?php $i = 0; ?>
+
+            <div class="py-10">
+                    <h1>Courses</h1>
+                    <input id="searchBarCourses" onkeyup="searchCourses()" type="text" name="search" placeholder="Search courses...">
+
+                    <div id="course-list" class="grid grid-cols-4">
+                        <?php foreach($allcourses as $course): ?>
+                            <a class="searchCourses" href=""><?php echo $course['name']; ?></a>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
 
                 <h2 class="text-left">My Courses</h2>
 
