@@ -26,13 +26,15 @@ $allcourses = selectAllOrdered('courses', 'name', 'ASC');
     <div id="__next">
         <?php include(ROOT . "app/includes/header.php"); ?>
 
-        <div class="flex flex-col flex-grow text-center justify-around items-center py-16">
+        <div class="flex flex-col flex-grow text-center justify-around items-center py-12">
             <div class="w-7/12 ">
+            <h1>MY PAGE</h1>
+            <hr>
                 <?php $i = 0; ?>
-
-                <h2 class="text-left">My Courses</h2>
-
-                <form action="user.php" method="post" class="p-10 space-y-5" enctype="multipart/form-data">
+                
+                <div class="py-12">
+                    <h2 class="text-left pb-3">My Courses</h2>
+                    <form action="user.php" method="post" enctype="multipart/form-data">
                     <div class="grid grid-cols-5 gap-10">
                         <?php foreach($mycourses as $c): ?>
                             
@@ -60,39 +62,39 @@ $allcourses = selectAllOrdered('courses', 'name', 'ASC');
                             <?php endforeach; ?>
                         </select>
                     </div>
-                    <button class="border-black border-2 p-4 hover:bg-blue-200" type="submit" name="editMyCourses">Edit Courses</button>
+                    <button class="border-black border-2 p-4 mt-10 hover:bg-blue-200" type="submit" name="editMyCourses">Edit Courses</button>
                 </form>
+                </div>
 
                 <hr>
 
-                <div class="flex flex-row justify-between pt-10 pb-5 align-text-bottom">
-                    <h2>Course Info</h2>
-                    <?php if($_SESSION['admin'] == 1): ?>
-                        <a href="edit.php" class="text-lg hover:text-blue-200">Edit</a>
-                    <?php endif; ?>
-                </div>
-                <table id="allcourses">
-                    <tr>
-                        <th onclick="sortTable(0)">Course</th>
-                        <th onclick="sortTable(1)">Professor</th>
-                        <th>Items</th>
-                    </tr>
-                    <?php foreach($mycourses as $course): ?>
+                <div class="pt-12">
+                    <h2 class="text-left pb-3">Course Info</h2>
+                    <table id="allcourses">
                         <tr>
-                            <td><?php echo $course['name']; ?></td>
-                            <td><?php echo $course['professor']; ?></td>
-                            <?php 
-                            $itemsArr = explode(" ", $course['items']);
-                            $cnt = count($itemsArr);
-                            ?>
-                            <td>
-                                <?php foreach($itemsArr as $i):?>
-                                    <a class="hover:text-blue-800" href="<?php echo $i; ?>"><?php echo $i; ?></a><br>
-                                <?php endforeach; ?>
-                            </td>
+                            <th onclick="sortTable(0)">Course</th>
+                            <th onclick="sortTable(1)">Professor</th>
+                            <th>Items</th>
                         </tr>
-                    <?php endforeach; ?>
-                </table>
+                        <?php foreach($mycourses as $course): ?>
+                            <tr>
+                                <td><?php echo $course['name']; ?></td>
+                                <td><?php echo $course['professor']; ?></td>
+                                <?php 
+                                $itemsArr = explode(" ", $course['items']);
+                                $cnt = count($itemsArr);
+                                ?>
+                                <td>
+                                    <?php foreach($itemsArr as $i):?>
+                                        <a class="hover:text-blue-800" href="<?php echo $i; ?>"><?php echo $i; ?></a><br>
+                                    <?php endforeach; ?>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </table>
+
+                </div>
+                
             </div>
 
         </div>

@@ -17,83 +17,72 @@ $allcourses = selectAllOrdered('courses', 'name', 'ASC');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GetBooks | Student </title>
     <link href="https://unpkg.com/tailwindcss@^2.0/dist/tailwind.min.css" rel="stylesheet">
-    <link href="assets/css/tailwind.css" rel="stylesheet">
+    <!-- <link href="assets/css/tailwind.css" rel="stylesheet"> -->
+    <link href="css/style.css" rel="stylesheet">
+    
 </head>
 
 <body>
     <div id="__next">
         <?php include(ROOT . "app/includes/header.php"); ?>
 
-        <div class="flex flex-col flex-grow text-center justify-around items-center">
+        <div class="flex flex-col flex-grow text-center justify-around items-center py-12">
             <div class="w-7/12 ">
-            <?php $i = 0; ?>
+                <h1>EDIT</h1>
+                <hr>            
 
-                <form action="edit.php" method="post" class="p-5 space-y-5" enctype="multipart/form-data">
-                    <div class="grid grid-cols-5 py-32">
-                        <?php foreach($mycourses as $c): ?>
-                            
-                            <!-- list MY courses -->
-                            <select id="mycourses<?php echo $i; ?>" name="mycourses<?php echo $i; ?>">
-                                <option value="<?php echo $c['name']; ?>"><?php echo $c['name']; ?></option>
-                                <!-- list ALL courses as options -->
-                                <?php foreach($allcourses as $thiscourse): ?>
-                                    <?php if ($thiscourse['name'] == $c['name']) {
-                                        continue;
-                                    } else { ?>
-                                        <option value="<?php echo $thiscourse['name']; ?>"><?php echo $thiscourse['name']; ?></option>
-                                    <?php }; ?>
-                                <?php endforeach; ?>
-                                <option value=""></option>
-                                <?php $i = $i + 1; ?>
-                            </select>
-                        <?php endforeach; ?>
+                <div class="py-12">
+                    <h2 class="text-left pb-3">Course Info</h2>
 
-                        <select id="mycourses" name="mycourses">
-                            <option value=""></option>
-                            <!-- list ALL courses as options -->
-                            <?php foreach($allcourses as $thiscourse): ?>
-                                <option value="<?php echo $thiscourse['name']; ?>"><?php echo $thiscourse['name']; ?></option>
-                            <?php endforeach; ?>
-                        </select>
-                        <button type="submit" name="editMyCourses">Edit Courses</button>
-                    </div>
-                </form>
-
-                
-
-                <div class="flex flex-row justify-between">
-                    <h1>Course Info</h1>
-                </div>
-                
-                <table>
-                    <tr>
-                        <th>Course Name</th>
-                        <th>Professor</th>
-                        <th>Items</th>
-                        <th>Submit</th>
-                    </tr>
-                    <?php foreach($mycourses as $course): ?>
+            
+                    <table>
                         <tr>
-                            <form action="edit.php" method="post" class="p-5 space-y-5" enctype="multipart/form-data">
-                                <input type="hidden" name="id" value="<?php echo $course['id']; ?>">
-                                <td><?php echo $course['name']; ?></td>
-                                <td><?php echo $course['professor']; ?></td>
-                                <?php 
-                                $itemsArr = explode(" ", $course['items']);
-                                $cnt = count($itemsArr);
-                                $inputCnt = 0; 
-                                ?>
-                                <td>
-                                    <?php foreach($itemsArr as $j):?>
-                                        <input type="text" value="<?php echo $j; ?>" name="input<?php echo $inputCnt; ?>">
-                                        <?php $inputCnt = $inputCnt + 1; ?>
-                                    <?php endforeach; ?>
-                                </td>
-                                <td><button type="submit" name="editItems">Change</button></td>
-                            </form>
+                            <th>Course Name</th>
+                            <th>Professor</th>
+                            <th>Items</th>
+                            <th>Submit</th>
+                            <th>Delete</th>
                         </tr>
-                    <?php endforeach; ?>
-                </table>
+                        <?php foreach($allcourses as $course): ?>
+                            <tr>
+                                <form action="edit.php" method="post" class="p-5 space-y-5" enctype="multipart/form-data">
+                                    <input type="hidden" name="id" value="<?php echo $course['id']; ?>">
+                                    <td><?php echo $course['name']; ?></td>
+                                    <td><?php echo $course['professor']; ?></td>
+                                    <?php 
+                                    $itemsArr = explode(" ", $course['items']);
+                                    $cnt = count($itemsArr);
+                                    $inputCnt = 0; 
+                                    ?>
+                                    <td>
+                                        <?php foreach($itemsArr as $j):?>
+                                            <input class="border-black border-2 p-3 my-3 w-full" type="text" value="<?php echo $j; ?>" name="input<?php echo $inputCnt; ?>">
+                                            <?php $inputCnt = $inputCnt + 1; ?>
+                                        <?php endforeach; ?>
+                                    </td>
+                                    <td><button class="hover:text-blue-800" type="submit" name="editItems">Change</button></td>
+                                    <td><button class="hover:text-blue-800" type="submit" name="deleteItem">Delete</button></td>
+                                </form>
+                            </tr>
+                        <?php endforeach; ?>
+                        <tr>
+                                <form action="edit.php" method="post">
+                                    <td>
+                                        <input type="text" name="name">
+                                    </td>
+                                    <td>
+                                        <input type="text" name="professor">
+                                    </td>
+                                    <td>
+                                        <input type="text" name="items">
+                                    </td>
+                                    <td><button class="hover:text-blue-800" type="submit" name="addNewCourse">Add</button></td>
+                                    <td></td>
+                                </form>
+                            </tr>
+                    </table>
+                </div>
+
             </div>
         </div>
 

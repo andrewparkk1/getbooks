@@ -20,34 +20,49 @@ include("app/controllers/users.php");
 <body>
     <div id="__next">
         <?php include(ROOT . "app/includes/header.php"); ?>
-        <div class="flex flex-col flex-grow text-center justify-around items-center py-16">
+        <div class="flex flex-col flex-grow text-center justify-around items-center py-12">
             <div class="w-7/12">
-                    <div>
-                        <div class="flex flex-row justify-between">
-                            <h2 class="text-left">Courses</h2>
-                            <input id="searchBarCourses" onkeyup="searchCourses()" type="text" name="search" placeholder="Search courses...">
-                        </div>
-                        
-                        <div id="course-list" class="grid grid-cols-4">
-                            <?php foreach($allcourses as $course): ?>
-                                <a class="searchCourses" href=""><?php echo $course['name']; ?></a>
-                            <?php endforeach; ?>
-                        </div>
+                <h1>MY SCHOOL</h1>
+                <hr>
+
+                <div class="py-12">
+                    <div class="flex flex-row justify-between">
+                        <h2 class="text-left pb-3">Courses</h2>
+                        <input id="searchBarCourses" onkeyup="searchCourses()" type="text" name="search" placeholder="Search courses...">
                     </div>
                     
-                    <div class="pt-10">
-                        <div class="flex flex-row justify-between">
-                            <h2 class="text-left">Professors</h2>
-                            <input id="searchBarProfessor" onkeyup="searchProfessors()" type="text" name="search" placeholder="Search professors...">
-                        </div>
+                    <div id="course-list" class="grid grid-cols-4">
+                        <?php foreach($allcourses as $course): ?>
+                            <p class="border-black border-2 p-2 m-2 searchCourses"><?php echo $course['name']; ?></p>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+                
+                <hr>
 
-                        <div class="grid grid-cols-4">
-                            <?php foreach($alluniqueprofessors as $prof): ?>
-                                <a class="searchProfessors" href=""><?php echo $prof; ?></a>
-                            <?php endforeach; ?>
-                        </div>
+                <div class="py-12">
+                    <div class="flex flex-row justify-between">
+                        <h2 class="text-left pb-3">Professors</h2>
+                        <input id="searchBarProfessor" onkeyup="searchProfessors()" type="text" name="search" placeholder="Search professors...">
                     </div>
 
+                    <div class="grid grid-cols-4">
+                        <?php foreach($alluniqueprofessors as $prof): ?>
+                            <p class="border-black border-2 p-2 m-2 searchProfessors"><?php echo $prof; ?></p>
+                        <?php endforeach; ?>
+                    </div>
+                </div>
+
+                <hr>
+
+                <div class="py-12">
+                    <div class="flex flex-row justify-between align-text-bottom">
+                        <h2 class="text-left pb-3">Table View</h2>
+                        <?php if($_SESSION['admin'] == 1): ?>
+                            <a href="edit.php" class="text-lg hover:text-blue-200">Edit</a>
+                        <?php endif; ?>                   
+                     </div>
+                    
                     <table id="allcourses">
                         <tr>
                             <th onclick="sortTable(0)">Course</th>
@@ -71,10 +86,8 @@ include("app/controllers/users.php");
                         <?php endforeach; ?>
                     </table>
                 </div>
-
-
-
             </div>
+
         </div>
 
 

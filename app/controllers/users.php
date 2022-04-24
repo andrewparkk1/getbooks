@@ -161,5 +161,18 @@ if(isset($_POST['editItems'])) {
     header("Refresh:0");
 }
 
+if(isset($_POST['addNewCourse'])) {
+    unset($_POST['addNewCourse']);
+    $course = create('courses', $_POST);
+    array_push($mycourses, $course);
+}
+
+if(isset($_POST['deleteItem'])) {
+    delete('courses', $_POST['id']);
+}
+
+
+
+
 
 ?>
