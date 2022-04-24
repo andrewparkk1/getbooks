@@ -23,7 +23,10 @@ $allprofessors = array();
 $allitems = array();
 foreach($allcourses as $course) {
     array_push($allprofessors, $course['professor']); 
-    array_push($allitems, $course['items']);
+    $newitemarray = explode(" ", $course['items']);
+    foreach($newitemarray as $i) {
+        array_push($allitems, $i);
+    }
 }
 $alluniqueprofessors = array_unique($allprofessors); 
 

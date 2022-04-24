@@ -22,14 +22,14 @@ include("app/controllers/users.php");
 
         <div class="flex flex-col flex-grow text-center">
             
-        <div class="flex flex-row flex-grow">
+        <div class="flex flex-row flex-grow text-white">
             <div class="flex flex-col w-1/2 justify-around">
-                <a href="school.php" class="flex flex-col justify-center grow flex-grow hover:bg-blue-200">
+                <a href="school.php" class="flex flex-col justify-center grow flex-grow hover:opacity-50 bg-cover" style="background-image: url(assets/images/school.jpg)">
                     <h1>SCHOOL</h1>
                     <h3>Learn more about the courses and professors in your school</h3>
                 </a>
                 <hr>
-                <a href="user.php" class="flex flex-col justify-center grow flex-grow hover:bg-blue-200">
+                <a href="user.php" class="flex flex-col justify-center grow flex-grow hover:opacity-50 bg-cover" style="background-image: url(assets/images/library.jpg)">
                     <h1>ME</h1>
                     <h3>Learn more about your own courses and books</h3>
                 </a>           

@@ -22,7 +22,10 @@ include("app/controllers/users.php");
         <?php include(ROOT . "app/includes/header.php"); ?>
         <div class="flex flex-col flex-grow text-center justify-around items-center py-12">
             <div class="w-7/12">
-                <h1>MY SCHOOL</h1>
+                <div class="bg-cover" style="background-image: url(assets/images/school.jpg); ">
+                    <h1>MY SCHOOL</h1>
+
+                </div>
                 <hr>
 
                 <div class="py-12">

@@ -1,10 +1,6 @@
 <?php include("path.php");
 include("app/controllers/users.php");
 $allcourses = selectAllOrdered('courses', 'name', 'ASC'); 
-// $allCourseNames = array(); 
-// foreach($courses as $cn) {
-//     array_push($allCourseNames, $cn['name']);
-// }
 
 ?> 
 
@@ -28,7 +24,9 @@ $allcourses = selectAllOrdered('courses', 'name', 'ASC');
 
         <div class="flex flex-col flex-grow text-center justify-around items-center py-12">
             <div class="w-7/12 ">
-            <h1>MY PAGE</h1>
+            <div class="bg-cover" style="background-image: url(assets/images/cap.jpg); ">
+                <h1>MY PAGE</h1>
+             </div>
             <hr>
                 <?php $i = 0; ?>
                 

@@ -1,10 +1,6 @@
 <?php include("path.php");
 include("app/controllers/users.php");
 $allcourses = selectAllOrdered('courses', 'name', 'ASC'); 
-// $allCourseNames = array(); 
-// foreach($courses as $cn) {
-//     array_push($allCourseNames, $cn['name']);
-// }
 
 ?> 
 
@@ -68,13 +64,13 @@ $allcourses = selectAllOrdered('courses', 'name', 'ASC');
                         <tr>
                                 <form action="edit.php" method="post">
                                     <td>
-                                        <input type="text" name="name">
+                                        <input class="border-black border-2 p-3 my-3 w-full" type="text" name="name">
                                     </td>
                                     <td>
-                                        <input type="text" name="professor">
+                                        <input class="border-black border-2 p-3 my-3 w-full" type="text" name="professor">
                                     </td>
                                     <td>
-                                        <input type="text" name="items">
+                                        <input class="border-black border-2 p-3 my-3 w-full" type="text" name="items">
                                     </td>
                                     <td><button class="hover:text-blue-800" type="submit" name="addNewCourse">Add</button></td>
                                     <td></td>
